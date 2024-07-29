@@ -1,0 +1,45 @@
+# -*- coding: utf-8 -*-
+
+n = int(input())
+for x in range(n):
+    mat = [0] * 9
+    for i in range(9):
+        mat[i] = input().split()
+       
+    for i in range(9):
+        for j in range(9):
+            mat[i][j] = int(mat[i][j])
+
+    sudoku = True
+   
+    for i in range(9):
+        v1 = [0] * 10
+        v2 = [0] * 10
+        for j in range(9):
+            if v1[mat[i][j]] == 0 and v2[mat[j][i]] == 0:
+                v1[mat[i][j]] += 1
+                v2[mat[j][i]] += 1
+            else:
+                sudoku = False
+                break
+       
+    if sudoku:
+        for o in range(3):
+            if not sudoku:
+                break
+            for p in range(3):
+                v3 = [0] * 10
+                for i in range(o*3, (o+1)*3):
+                    for j in range(p*3, (p+1)*3):
+                        if v3[mat[i][j]] == 0:
+                            v3[mat[i][j]] += 1
+                        else:
+                            sudoku = False
+                            break
+               
+    print('Instancia %d' % (x+1))
+    if sudoku:
+        print('SIM')
+    else:
+        print('NAO')
+    print('')

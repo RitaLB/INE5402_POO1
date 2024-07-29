@@ -1,0 +1,32 @@
+#criar lista para coordenadas:
+from urllib.request import AbstractBasicAuthHandler
+
+
+coorden = [0]*8
+for i in range (8):
+    coorden [i] = list(map(int,input().split()))
+#transf. coord em inteiros:
+for i in range (8):
+    for j in range (2):
+        coorden [i][j] = int(coorden[i][j])
+
+#calcular distâncias
+abA = (((coorden[0][0]-coorden[1][0])**2) + ((coorden[0][1]-coorden[1][1])**2))**(1/2)
+bcA = (((coorden[1][0]-coorden[2][0])**2) + ((coorden[1][1]-coorden[2][1])**2))**(1/2)
+cdA= (((coorden[2][0]-coorden[3][0])**2) + ((coorden[2][1]-coorden[3][1])**2))**(1/2)
+daA = (((coorden[3][0]-coorden[0][0])**2) + ((coorden[3][1]-coorden[0][1])**2))**(1/2)
+
+abB = (((coorden[4][0]-coorden[5][0])**2) + ((coorden[4][1]-coorden[5][1])**2))**(1/2)
+bcB = (((coorden[5][0]-coorden[6][0])**2) + ((coorden[5][1]-coorden[6][1])**2))**(1/2)
+cdB= (((coorden[6][0]-coorden[7][0])**2) + ((coorden[6][1]-coorden[7][1])**2))**(1/2)
+daB = (((coorden[7][0]-coorden[4][0])**2) + ((coorden[7][1]-coorden[4][1])**2))**(1/2)
+
+# calcular áreas
+a1 = abA* bcA
+a2 = abB * bcB
+#comparar áreas:
+if a1 > a2:
+    print("terreno A")
+
+else: 
+    print("terreno B")

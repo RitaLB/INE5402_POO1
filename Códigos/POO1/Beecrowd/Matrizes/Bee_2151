@@ -1,0 +1,27 @@
+c = int(input())
+
+for k in range(c):
+    m, n, x, y = map(int, input().split())
+    f = y-1
+    g = x-1
+    mat = [None] * m
+    for i in range(m):
+        mat[i] = input().split()
+
+    for i in range(m):
+        for j in range(n):
+            mat[i][j] = int(mat[i][j])
+
+    for i in range(m):
+        for j in range(n):
+            dano = 10 - max(abs(g-i), abs(f-j))
+            if dano <= 1:
+                mat[i][j] += 1
+            else:
+                mat[i][j] += dano
+
+    print('Parede %d:' % (k+1))
+    for i in range(m):
+        for j in range(n-1):
+            print(mat[i][j], end=' ')
+        print(mat[i][n-1])

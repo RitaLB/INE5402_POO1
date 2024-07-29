@@ -1,0 +1,69 @@
+while True:
+    s1 = 0
+    c1 = True
+    s2 = 0
+    c2 = True
+    s3 = 0
+    c3 = True
+    s4 = 0
+    c4 = True
+    c = 0
+
+    n, m = map(int, input().split())
+
+    if n == 0 and m == 0:
+        break
+
+    mat = [None] * n
+    for i in range(n):
+        mat[i] = input().split()
+
+    for i in range(n):
+        for j in range(m):
+            mat[i][j] = int(mat[i][j])
+
+    for i in range(n):
+        s1 = 0
+        for j in range(m):
+            s1 += mat[i][j]
+        if s1 == m:
+            c1 = False
+            break
+
+    if c1:
+        c += 1
+
+    for j in range(m):
+        s2 = 0
+        for i in range(n):
+            s2 += mat[i][j]
+        if s2 == 0:
+            c2 = False
+            break
+
+    if c2:
+        c += 1
+
+    for j in range(m):
+        s3 = 0
+        for i in range(n):
+            s3 += mat[i][j]
+        if s3 == n:
+            c3 = False
+            break
+
+    if c3:
+        c += 1
+
+    for i in range(n):
+        s4 = 0
+        for j in range(m):
+            s4 += mat[i][j]
+        if s4 == 0:
+            c4 = False
+            break
+
+    if c4:
+        c += 1
+
+    print(c)

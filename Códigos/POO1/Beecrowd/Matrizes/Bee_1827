@@ -1,0 +1,30 @@
+# -*- coding: utf-8 -*-
+while True:
+    try:
+        n = int(input())
+        mat = [0] * n
+        for i in range(n):
+            mat[i] = [0] * n
+           
+        for i in range(n):
+            for j in range(n):
+                if i == j:
+                    mat[i][j] = 2
+                elif j == (n-1-i):
+                    mat[i][j] = 3
+       
+        for i in range(n // 3, n - n // 3):
+            for j in range(n // 3, n - n // 3):
+                mat[i][j] = 1
+               
+        c = ((n+1) // 2) -1
+        mat[c][c] = 4
+       
+        for i in range(n):
+            for j in range(n):
+                print(mat[i][j], end= '')
+            print()
+        print()
+
+    except EOFError:
+        break

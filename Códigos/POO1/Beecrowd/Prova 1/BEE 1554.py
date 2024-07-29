@@ -1,0 +1,13 @@
+c = int(input())
+for i in range (c)
+    n = int(input())
+    xb, yb = input().split()
+    xb = int(xb)
+    yb = int (yb)
+
+    for j in range( n)
+        x,y = input().split()
+        x = int(x)
+        y = int(y)
+        dist = ((xb-x)**2)+((yb-y)**2)
+        if dist(j)

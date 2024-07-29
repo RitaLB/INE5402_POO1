@@ -1,0 +1,26 @@
+# -*- coding: utf-8 -*-
+l, c = map(int, input().split())
+a, b = map(int, input().split())
+
+m = [None] * l
+for i in range(l):
+    m[i] = input().split()
+
+pi = a-1
+pf = b-1
+while True: 
+    if pi > 0 and m[pi-1][pf] == '1':
+        m[pi][pf] = '2'
+        pi = pi-1
+    elif pi < l-1 and m[pi+1][pf] == '1':
+        m[pi][pf] = '2'
+        pi = pi+1
+    elif pf > 0 and m[pi][pf-1] == '1':
+        m[pi][pf] = '2'
+        pf = pf-1
+    elif pf < c-1 and m[pi][pf+1] == '1':
+        m[pi][pf] = '2'
+        pf = pf+1
+    else:
+        print(pi+1, pf+1)
+        break

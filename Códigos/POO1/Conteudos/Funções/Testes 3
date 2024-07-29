@@ -1,0 +1,25 @@
+def notarec(nota):
+    '''
+    This function tells you the minimum grade 
+    you need to achieve to be succeed 
+    in the course
+    '''
+    nota = int(nota)
+    mingrade = 12 - nota
+    
+    print("You need to achieve at least {} to be succeeded in your course." .format(mingrade))
+
+while True:
+    funcao = input("Type '0' for break, '1' to continue:")
+    if funcao == '0':
+        break
+    elif funcao == '1':
+        while True:
+            mygrade = input("Your grade:")
+            if mygrade == "00":
+                break
+            elif int(mygrade) <= 6:
+                notarec(mygrade)
+            else:
+                print("You are safe, go lay on the beach")
+                
